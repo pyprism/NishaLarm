@@ -5,6 +5,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from .models import Api, Nisha
 from .serializers import ApiSerializer, NishaSerializer
+from rest_framework import viewsets
 # Create your views here.
 
 
@@ -22,4 +23,13 @@ def test(request):
     if request.method == 'GET':
         api = Api.objects.all()
         serializer = ApiSerializer(api)
+        print(serializer.data)
         return JSONResponse(serializer.data)
+
+
+class ApiViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Api.objects.all()
+    serializer_class = ApiSerializer
