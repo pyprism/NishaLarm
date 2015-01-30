@@ -1,4 +1,4 @@
-Django==1.7.1
+Django==1.7.4
 SocksiPy-branch==1.01
 djangorestframework==2.4.3
 httplib2==0.9
